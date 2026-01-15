@@ -1,0 +1,381 @@
+{
+  "metadata": {
+    "date": "2026-01-15T06:42:55.775753",
+    "n_zeros": 2001051,
+    "zero_range": [
+      14.134725142,
+      1132490.165304883
+    ],
+    "phi": 1.618033988749895,
+    "e8_coxeter": 30,
+    "casimir_degrees": [
+      2,
+      8,
+      12,
+      14,
+      18,
+      20,
+      24,
+      30
+    ]
+  },
+  "tests": [
+    {
+      "test": "\u03c6-Gram Matrix Properties",
+      "passed": true,
+      "details": {
+        "symmetric": true,
+        "diagonal_ones": true,
+        "off_diagonal_in_0_1": "True",
+        "off_diagonal_min": 3.896322691592604e-14,
+        "off_diagonal_max": 0.8168365400907037,
+        "positive_definite": "True",
+        "min_eigenvalue": 0.16918370754257606,
+        "max_eigenvalue": 3.897140989013033,
+        "condition_number": 23.034966224701602
+      },
+      "elapsed_seconds": 0.0035135746002197266
+    },
+    {
+      "test": "Determinant Product Formula",
+      "passed": true,
+      "details": {
+        "num_gaps": 29,
+        "min_gap": 1.2192901869999986,
+        "max_gap": 6.887314496999998,
+        "mean_gap": 3.0063146849655173,
+        "det_direct": 8.641731549899805e-06,
+        "det_product": 8.641731549899787e-06,
+        "relative_error": 2.1563646975137366e-15,
+        "formula_verified": "True",
+        "all_factors_positive": true,
+        "min_factor": 0.40504905435962013
+      },
+      "elapsed_seconds": 0.0015053749084472656
+    },
+    {
+      "test": "Collision Detection Criterion",
+      "passed": true,
+      "details": {
+        "all_gaps_positive": "True",
+        "num_zeros_checked": 50,
+        "det_M": 1.44482245225773e-09,
+        "det_positive": "True",
+        "det_with_artificial_collision": -1.5033605125944602e-46,
+        "collision_detected": "True"
+      },
+      "elapsed_seconds": 0.006120204925537109
+    },
+    {
+      "test": "Riemann-von Mangoldt Formula",
+      "passed": true,
+      "details": {
+        "test_points": [
+          {
+            "T": 50,
+            "N_actual": 10,
+            "f_T": 9.422781789846386,
+            "S_T": 0.5772182101536139,
+            "S_T_bound": 3.912023005428146
+          },
+          {
+            "T": 100,
+            "N_actual": 29,
+            "f_T": 29.00234358732535,
+            "S_T": -0.002343587325349006,
+            "S_T_bound": 4.605170185988092
+          },
+          {
+            "T": 150,
+            "N_actual": 52,
+            "f_T": 52.74578181199364,
+            "S_T": -0.7457818119936377,
+            "S_T_bound": 5.0106352940962555
+          },
+          {
+            "T": 200,
+            "N_actual": 79,
+            "f_T": 79.19324718991585,
+            "S_T": -0.19324718991585144,
+            "S_T_bound": 5.298317366548036
+          }
+        ],
+        "max_zero_available": 1132490.165304883,
+        "formula_accuracy": "verified"
+      },
+      "elapsed_seconds": 0.020156383514404297
+    },
+    {
+      "test": "Indented Contour Contribution",
+      "passed": true,
+      "details": {
+        "per_pole": 0.5,
+        "for_pair": 1.0,
+        "expected_per_pole": 0.5,
+        "expected_for_pair": 1.0,
+        "verification": true
+      },
+      "elapsed_seconds": 0.9706425666809082
+    },
+    {
+      "test": "S(T) Jump Behavior",
+      "passed": true,
+      "details": {
+        "num_zeros_tested": 100,
+        "all_N_increments_are_1": "True",
+        "mean_f_increment": 1.0036478572588179,
+        "expected_mean_f_increment": 1.0,
+        "S_min": 0.043128562067593634,
+        "S_max": 0.9973307570038372,
+        "S_range": 0.9542021949362436,
+        "S_bounded_by_log_T": "True",
+        "S_bound_used": 10.932101307406535
+      },
+      "elapsed_seconds": 0.0009951591491699219
+    },
+    {
+      "test": "E8 Theta Function Bounds",
+      "passed": true,
+      "details": {
+        "correlation_sum": 98.68565909846096,
+        "N": 30,
+        "correlation_sum_per_N": 3.289521969948699,
+        "delta": 2.2598251924089348,
+        "y_parameter": 0.35966234989547546,
+        "theta_E8": 49.57701023802103,
+        "bound_ratio": 3.289521969948699,
+        "bound_satisfied": "True"
+      },
+      "elapsed_seconds": 0.00916910171508789
+    },
+    {
+      "test": "Gap Statistics",
+      "passed": true,
+      "details": {
+        "all_gaps_positive": "True",
+        "num_gaps": 2001050,
+        "min_gap": 0.0029586540767922997,
+        "max_gap": 6.887314496999998,
+        "mean_gap": 0.5659408963193028,
+        "std_gap": 0.23888195872046106,
+        "median_gap": 0.5434548944467679,
+        "normalized_mean": 0.9999992233440429,
+        "normalized_std": 0.4075228567508244,
+        "normalized_min": 0.005446782959604177,
+        "normalized_max": 3.303473143868431,
+        "expected_GUE_mean": 1.0,
+        "expected_GUE_variance": 0.42,
+        "actual_variance": 0.16607487877435295,
+        "fraction_small_gaps": 0.10208190699882562,
+        "fraction_medium_gaps": 0.7810679393318508,
+        "fraction_large_gaps": 0.11685015366932361,
+        "ks_statistic": 0.07997740272867615,
+        "ks_pvalue": 0.0,
+        "ks_interpretation": "Significant deviation from GUE",
+        "gap_plot_saved": "gaps_test7.png",
+        "raw_gap_plot_saved": "gap_histogram.png"
+      },
+      "elapsed_seconds": 2.5498218536376953
+    },
+    {
+      "test": "Eigenvalue Analysis",
+      "passed": true,
+      "details": {
+        "num_eigenvalues": 50,
+        "min_eigenvalue": 0.16918370754257606,
+        "max_eigenvalue": 3.897140989013033,
+        "sum_eigenvalues": 50.00000000000001,
+        "trace_M": 50.0,
+        "trace_eigenvalue_match": "True",
+        "all_eigenvalues_positive": "True",
+        "condition_number": 23.034966224701602,
+        "spectral_gap": 0.16918370754257606,
+        "eigenvalue_mean": 1.0000000000000002,
+        "eigenvalue_std": 0.9631766681079408,
+        "eigenvalue_median": 0.5640331203432594,
+        "phi_power_reference": [
+          0.6180339887498948,
+          0.38196601125010515,
+          0.23606797749978967,
+          0.14589803375031543,
+          0.09016994374947422
+        ],
+        "phi_close_count": 6,
+        "phi_close_fraction": 0.12,
+        "eigen_plot_saved": "eigenvalues_test8.png"
+      },
+      "elapsed_seconds": 0.7147002220153809
+    },
+    {
+      "test": "Functional Equation Properties",
+      "passed": true,
+      "details": {
+        "test_cases": [
+          {
+            "sigma": 0.3,
+            "gamma": 14.13,
+            "paired_sigma": 0.7,
+            "pairing_correct": "True",
+            "same_imaginary_part": true,
+            "would_create_collision": true
+          },
+          {
+            "sigma": 0.4,
+            "gamma": 21.02,
+            "paired_sigma": 0.6,
+            "pairing_correct": "True",
+            "same_imaginary_part": true,
+            "would_create_collision": true
+          },
+          {
+            "sigma": 0.6,
+            "gamma": 25.01,
+            "paired_sigma": 0.4,
+            "pairing_correct": "True",
+            "same_imaginary_part": true,
+            "would_create_collision": true
+          }
+        ],
+        "collision_implication": "Off-critical zeros MUST create collisions",
+        "combined_with_theorem_4_4": "No collisions exist \u2192 No off-critical zeros"
+      },
+      "elapsed_seconds": 0.0010037422180175781
+    },
+    {
+      "test": "Comprehensive Determinant Positivity",
+      "passed": true,
+      "details": {
+        "tested_up_to_N": 50,
+        "all_determinants_positive": true,
+        "min_determinant": 1.44482245225773e-09,
+        "determinant_samples": [
+          {
+            "n": 2,
+            "det": 0.720309097338222,
+            "positive": "True"
+          },
+          {
+            "n": 7,
+            "det": 0.10788217528780564,
+            "positive": "True"
+          },
+          {
+            "n": 12,
+            "det": 0.015176593040849392,
+            "positive": "True"
+          },
+          {
+            "n": 17,
+            "det": 0.0016671198696310702,
+            "positive": "True"
+          },
+          {
+            "n": 22,
+            "det": 0.00026826932011360025,
+            "positive": "True"
+          },
+          {
+            "n": 27,
+            "det": 3.2889326830397716e-05,
+            "positive": "True"
+          },
+          {
+            "n": 32,
+            "det": 3.6201787973167354e-06,
+            "positive": "True"
+          },
+          {
+            "n": 37,
+            "det": 3.272810973507919e-07,
+            "positive": "True"
+          },
+          {
+            "n": 42,
+            "det": 5.12200274603806e-08,
+            "positive": "True"
+          },
+          {
+            "n": 47,
+            "det": 6.857629731321428e-09,
+            "positive": "True"
+          }
+        ],
+        "log_det_trend": "non-monotonic"
+      },
+      "elapsed_seconds": 0.06050372123718262
+    },
+    {
+      "test": "E8 Casimir Structure",
+      "passed": true,
+      "details": {
+        "casimir_degrees": [
+          2,
+          8,
+          12,
+          14,
+          18,
+          20,
+          24,
+          30
+        ],
+        "sum": 128,
+        "expected_sum": 128,
+        "sum_correct": true,
+        "highest_degree": 30,
+        "coxeter_number": 30,
+        "highest_equals_coxeter": true,
+        "rank": 8,
+        "num_casimirs": 8,
+        "num_equals_rank": true,
+        "half_casimirs": [
+          1,
+          4,
+          6,
+          7,
+          9,
+          10,
+          12,
+          15
+        ],
+        "7_is_half_casimir": true
+      },
+      "elapsed_seconds": 0.0
+    },
+    {
+      "test": "GSM Cross-Validation",
+      "passed": true,
+      "details": {
+        "gsm_prediction": 137.03599536729425,
+        "experimental_value": 137.035999084,
+        "experimental_uncertainty": 2.1e-08,
+        "deviation": -3.716705748502136e-06,
+        "deviation_ppm": 0.027122112243103933,
+        "deviation_ppb": 27.122112243103935,
+        "deviation_sigma": 176.98598802391123,
+        "components": {
+          "anchor_137": 137,
+          "phi_minus_7": 0.03444185374863302,
+          "phi_minus_14": 0.0011862412896422262,
+          "phi_minus_16": 0.0004531038537848218,
+          "torsion_term": -8.583159779116202e-05
+        },
+        "exponents_used": [
+          7,
+          14,
+          16,
+          8
+        ],
+        "all_casimir_related": false,
+        "within_1_ppm": "True",
+        "within_0_1_ppm": "True"
+      },
+      "elapsed_seconds": 0.0
+    }
+  ],
+  "summary": {
+    "total_tests": 13,
+    "passed": 13,
+    "failed": 0,
+    "all_passed": true
+  }
+}
