@@ -129,7 +129,7 @@ python src/rh_comprehensive_validation.py 2001051
 ```
 The core Jump Contradiction (Theorem 4.4) has been formally verified in Lean 4 with Mathlib:
 
-File: rh_jump_contradiction.lean
+File: [rh_jump_contradiction.lean](./rh_jump_contradiction.lean)
 
 Lean version: leanprover/lean4:v4.24.0
 
