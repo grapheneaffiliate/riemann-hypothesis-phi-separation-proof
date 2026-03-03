@@ -48,13 +48,7 @@ Defining Jump of a function.
 open Complex Real Topology Filter
 
 
-/-- The jump of a function at a point -/
-def Jump (f : ℝ → ℝ) (t : ℝ) : ℝ :=
-  (Function.leftLim f t) - (Function.rightLim f t) -- Wait, usually Right - Left.
-
-/-
-Defining Delta (jump) as right limit minus left limit.
--/
+/-- The jump (Delta) of a function at a point: right limit minus left limit. -/
 def Delta (f : ℝ → ℝ) (t : ℝ) : ℝ := Function.rightLim f t - Function.leftLim f t
 
 /-
@@ -113,11 +107,6 @@ def HasLeftLim (f : ℝ → ℝ) (t : ℝ) : Prop :=
 
 def HasRightLim (f : ℝ → ℝ) (t : ℝ) : Prop :=
   ∃ r, Tendsto f (nhdsWithin t (Set.Ioi t)) (nhds r)
-
-/-
-Checking if leftLim_eq_of_tendsto exists.
--/
-#check leftLim_eq_of_tendsto
 
 /-
 Defining HasLeftRightLimits as having both a left and a right limit.

@@ -303,7 +303,7 @@ where:
 
 The remainder R(T) arises primarily from the vertical integrals at Re(s)=2 and Re(s)=-1, which are continuous in T. However, the top horizontal segment of the contour runs at Im(s)=T from Re(s)=-1 to Re(s)=2, crossing the critical strip. When T exactly equals the imaginary part γ of a zero (or pair of zeros), poles of ξ'/ξ lie on this segment, requiring small downward semicircular indentations around each simple pole to avoid the singularities.
 
-For a simple zero on the top boundary, a downward semicircular indentation (counter-clockwise contour) contributes $+\pi i \times \text{Res}(\xi'/\xi \text{ at } \rho)$ to the integral, where $\text{Res}=1$. Thus $(1/(2\pi i)) \times \pi i = +1/2$ to the effective zero count per pole. For a symmetric pair of off-critical zeros at the same height $\gamma=T$ ($\sigma + iT$ and $(1-\sigma) + iT$, both simple), two indentations contribute $+1/2$ each, for a total adjustment $\Delta R_{\text{indented}} = +1$ as $T$ crosses $\gamma$.
+For a simple zero on the top boundary, a downward semicircular indentation contributes $+\pi i \times \text{Res}(\xi'/\xi \text{ at } \rho)$ to the integral, where $\text{Res}=1$. Thus $(1/(2\pi i)) \times \pi i = +1/2$ to the effective zero count per pole. For a symmetric pair of off-critical zeros at the same height $\gamma=T$ ($\sigma + iT$ and $(1-\sigma) + iT$, both simple), two indentations contribute $+1/2$ each, for a total adjustment $\Delta R_{\text{indented}} = +1$ as $T$ crosses $\gamma$.
 
 \textbf{Step 2: Continuity of R(T)}
 
@@ -414,8 +414,8 @@ The asymmetry is critical:
 \begin{itemize}
     \item $N(T)$ counts ALL zeros (on and off critical line)
     \item $S(T) = \frac{1}{\pi}\arg\xi(1/2+iT)$ only ``sees'' zeros ON the critical line
-    \item A collision pair (off-critical) adds 2 to $N$ but 0 to $S$
-    \item The exact formula $\Delta N = \Delta S$ makes this arithmetically impossible
+    \item A collision pair (off-critical) adds 2 to $\Delta N$ but 0 to $\Delta S$ and only 1 to $\Delta R_{\text{indented}}$
+    \item The exact formula $\Delta N = \Delta f + \Delta S + \Delta R_{\text{indented}}$ gives $2 = 0 + 0 + 1$: contradiction
 \end{itemize}
 
 \begin{tcolorbox}[colback=yellow!5,colframe=yellow!75!black,title=Conclusion]
