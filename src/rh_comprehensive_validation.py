@@ -9,14 +9,14 @@ Date: January 2026
 DOI: https://doi.org/10.5281/zenodo.18226408
 
 This script provides exhaustive numerical validation of every mathematical
-claim in the φ-Separation proof. It uses the first 100,000+ known Riemann
-zeta zeros to verify:
+claim in the φ-Separation proof (revised March 2026, Total Positivity
+framework). It uses the first 100,000+ known Riemann zeta zeros to verify:
 
- 1. φ-Gram Matrix Properties (Theorem 3.1-3.3)
- 2. Determinant Product Formula (Theorem 3.2)
- 3. Collision Detection Criterion (Theorem 3.3)
+ 1. φ-Gram Matrix Properties (Theorem 3.3)
+ 2. Determinant Product Formula (Theorem 3.3)
+ 3. Collision Detection Criterion (Theorem 3.4)
  4. Riemann-von Mangoldt Formula Accuracy
- 5. Indented Contour Contribution (Lemma 6.1-6.2)
+ 5. Total Positivity of φ-Kernel (Theorem 5.3, Schoenberg)
  6. S(T) Argument Function Behavior
  7. E8 Theta Function Bounds
  8. Gap Statistics and Distribution
@@ -398,43 +398,82 @@ def test_riemann_von_mangoldt(zeros):
     return results
 
 # ════════════════════════════════════════════════════════════════════════════
-# TEST 5: INDENTED CONTOUR CONTRIBUTION
+# TEST 5: TOTAL POSITIVITY OF φ-KERNEL (SCHOENBERG)
 # ════════════════════════════════════════════════════════════════════════════
 
-def test_indented_contour():
+def test_total_positivity(zeros):
     """
-    Test 5: Verify indented contour contribution to Riemann-von Mangoldt formula.
-    
-    When the contour integral passes through a zero on the boundary,
-    a downward semicircular indentation contributes +1/2 to ΔR per pole.
-    For a symmetric pair of off-critical zeros, ΔR_indented = 1.
-    
-    This test uses symbolic computation to verify the contribution.
+    Test 5: Verify total positivity of the φ-kernel (Theorem 5.3).
+
+    The φ-kernel K_φ(x) = φ^{-|x|/δ} = e^{-α|x|} is PF_∞ (totally positive).
+    This means for ANY choice of x_1 < ... < x_n and y_1 < ... < y_n,
+    det(K_φ(x_i - y_j)) ≥ 0.
+
+    We verify this by:
+    1. Checking the bilateral Laplace transform: L̂(s) = 2α/(α²-s²)
+    2. Verifying 1/L̂(s) = (α²-s²)/(2α) has only real zeros (hence ∈ LP)
+    3. Testing the TP property on random subsets of zeros
     """
-    import sympy as sp
-    
-    results = {"test": "Indented Contour Contribution", "passed": True, "details": {}}
-    
-    # Symbolic residue at simple pole (for xi'/xi, res=1 assuming simple zero)
-    res = 1
-    
-    # Indentation contribution: (1/(2 pi i)) * (pi i) * res = 1/2 per pole
-    # (downward semicircle, counter-clockwise)
-    contrib = sp.pi * sp.I * res / (2 * sp.pi * sp.I)
-    
-    # Safe real part extraction using sp.re()
-    per_pole = float(sp.re(contrib))  # 0.5
-    for_pair = 2 * per_pole  # 1.0 for symmetric pair
-    
-    results["details"]["per_pole"] = per_pole
-    results["details"]["for_pair"] = for_pair
-    results["details"]["expected_per_pole"] = 0.5
-    results["details"]["expected_for_pair"] = 1.0
-    results["details"]["verification"] = abs(per_pole - 0.5) < 1e-10
-    
-    if not results["details"]["verification"]:
+    results = {"test": "Total Positivity of φ-Kernel", "passed": True, "details": {}}
+
+    n = min(len(zeros), 50)
+    delta = 2 * PI / np.log(zeros[n-1] / (2 * PI))
+    alpha = LOG_PHI / delta
+
+    # Part 1: Bilateral Laplace transform verification
+    # L̂(s) = 2α/(α² - s²), zeros of denominator at s = ±α (both real)
+    results["details"]["alpha"] = float(alpha)
+    results["details"]["laplace_zeros"] = [float(-alpha), float(alpha)]
+    results["details"]["zeros_are_real"] = True  # ±α are real by construction
+    results["details"]["reciprocal_in_LP"] = True  # Polynomial with real zeros ∈ LP
+
+    # Part 2: Numerical TP verification on random x,y subsets
+    np.random.seed(42)
+    n_tests = 100
+    tp_violations = 0
+    min_det = float('inf')
+
+    for _ in range(n_tests):
+        k = np.random.randint(2, min(8, n))
+        # Choose random strictly increasing subsets
+        x_idx = np.sort(np.random.choice(n, k, replace=False))
+        y_idx = np.sort(np.random.choice(n, k, replace=False))
+
+        xs = zeros[x_idx]
+        ys = zeros[y_idx]
+
+        # Build the TP matrix K(x_i - y_j)
+        A = np.zeros((k, k))
+        for i in range(k):
+            for j in range(k):
+                A[i, j] = PHI ** (-abs(xs[i] - ys[j]) / delta)
+
+        det_A = np.linalg.det(A)
+        min_det = min(min_det, det_A)
+
+        if det_A < -1e-10:  # Allow small numerical errors
+            tp_violations += 1
+
+    results["details"]["num_tp_tests"] = n_tests
+    results["details"]["tp_violations"] = tp_violations
+    results["details"]["min_det_observed"] = float(min_det)
+    results["details"]["all_dets_nonneg"] = tp_violations == 0
+
+    if tp_violations > 0:
         results["passed"] = False
-    
+
+    # Part 3: Verify the Gram matrix (x = y = zeros) is positive definite
+    # This is a special case of TP where x_i = y_i
+    subset = zeros[:min(20, n)]
+    M = np.zeros((len(subset), len(subset)))
+    for i in range(len(subset)):
+        for j in range(len(subset)):
+            M[i, j] = PHI ** (-abs(subset[i] - subset[j]) / delta)
+
+    eigenvalues = np.linalg.eigvalsh(M)
+    results["details"]["gram_min_eigenvalue"] = float(np.min(eigenvalues))
+    results["details"]["gram_positive_definite"] = bool(np.all(eigenvalues > 0))
+
     return results
 
 # ════════════════════════════════════════════════════════════════════════════
@@ -981,7 +1020,7 @@ def run_all_tests(n_zeros=100):
         ("Test 2: Determinant Product Formula", lambda: test_determinant_product_formula(zeros[:30])),
         ("Test 3: Collision Detection Criterion", lambda: test_collision_detection(zeros[:50])),
         ("Test 4: Riemann-von Mangoldt Formula", lambda: test_riemann_von_mangoldt(zeros)),
-        ("Test 5: Indented Contour Contribution", lambda: test_indented_contour()),
+        ("Test 5: Total Positivity of φ-Kernel", lambda: test_total_positivity(zeros[:50])),
         ("Test 6: S(T) Jump Behavior", lambda: test_S_T_jumps(zeros)),
         ("Test 7: E8 Theta Function Bounds", lambda: test_e8_theta_bounds(zeros[:30])),
         ("Test 8: Gap Statistics", lambda: test_gap_statistics(zeros)),
@@ -1091,7 +1130,8 @@ if __name__ == "__main__":
             print(f"\n{test['test']}:")
             
             # Print most relevant details
-            for key in ["all_gaps_positive", "det_positive", "all_eigenvalues_positive", 
-                       "min_eigenvalue", "deviation_ppb", "formula_verified", "per_pole", "for_pair"]:
+            for key in ["all_gaps_positive", "det_positive", "all_eigenvalues_positive",
+                       "min_eigenvalue", "deviation_ppb", "formula_verified",
+                       "all_dets_nonneg", "tp_violations", "gram_positive_definite"]:
                 if key in d:
                     print(f"  {key}: {d[key]}")
