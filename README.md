@@ -150,15 +150,15 @@ The theorem `riemann_hypothesis_contradiction_with_assumptions` proves that if a
 2. **Determinant Product Formula** - Verification of the exact formula
 3. **Collision Detection Criterion** - Confirms det=0 ⟺ collision
 4. **Riemann-von Mangoldt Formula** - Accuracy verification
-5. **S(T) Jump Behavior** - Argument function analysis
-6. **E8 Theta Function Bounds** - Envelope bound verification
-7. **Gap Statistics** - Distribution analysis vs GUE theory
-8. **Eigenvalue Analysis** - Spectral properties
-9. **Functional Equation Properties** - Pairing verification
-10. **Comprehensive Determinant Positivity** - det(M_N) > 0 for all N
-11. **E8 Casimir Structure** - Algebraic verification
-12. **GSM Cross-Validation** - Connection to physical constants
-13. **Indented Contour Contribution** - Boundary pole analysis
+5. **Indented Contour Contribution** - Boundary pole analysis (ΔR = +1/2 per pole)
+6. **S(T) Jump Behavior** - Argument function analysis
+7. **E8 Theta Function Bounds** - Envelope bound verification
+8. **Gap Statistics** - Distribution analysis vs GUE theory
+9. **Eigenvalue Analysis** - Spectral properties
+10. **Functional Equation Properties** - Pairing verification
+11. **Comprehensive Determinant Positivity** - det(M_N) > 0 for all N
+12. **E8 Casimir Structure** - Algebraic verification
+13. **GSM Cross-Validation** - Connection to physical constants
 
 ---
 
