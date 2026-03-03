@@ -3,7 +3,7 @@
 
 **Author:** Timothy McGirl  
 **AI Collaborators:** Opus (Anthropic), Grok (xAI), Gemini (Google), GPT (OpenAI)  
-**Date:** January 12, 2026  
+**Date:** January 12, 2026 (Revised March 2026)
 **Framework:** E8/H4/φ Geometric Synthesis
 
 ---
@@ -384,8 +384,8 @@ $$\text{Q.E.D.}$$
 ---
 
 **Author:** Timothy McGirl  
-**Affiliation:** Independent Researcher, Manassas, Virginia  
-**Date:** January 12, 2026  
+**Affiliation:** Independent Researcher, Manassas, Virginia
+**Date:** January 12, 2026 (Revised March 2026)
 **License:** CC BY 4.0
 
 ---

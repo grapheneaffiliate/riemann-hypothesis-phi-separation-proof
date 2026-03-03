@@ -35,7 +35,7 @@ The proof proceeds through five stages:
 riemann-hypothesis-phi-separation-proof/
 ├── README.md                           # This file
 ├── LICENSE                             # CC BY 4.0 License
-├── rh_jump_contradiction.lean          # Lean 4 formal verification (LP/heat flow framework)
+├── rh_phi_total_positivity.lean        # Lean 4 formal verification (LP/heat flow framework)
 │
 ├── docs/                               # Documentation and papers
 │   ├── RH_PROOF_COMPLETE_NO_GAPS.md    # Complete rigorous proof (main paper)
@@ -147,7 +147,7 @@ python src/rh_comprehensive_validation.py 2001051
 
 The proof structure has been formalized in Lean 4 with Mathlib:
 
-- **File:** [rh_jump_contradiction.lean](./rh_jump_contradiction.lean)
+- **File:** [rh_phi_total_positivity.lean](./rh_phi_total_positivity.lean)
 - **Lean version:** leanprover/lean4:v4.24.0
 - **Mathlib version:** f897ebcf72cd16f89ab4577d0c826cd14afaafc7
 - **Co-authored by:** Aristotle (Harmonic)
