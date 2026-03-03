@@ -39,7 +39,7 @@ $$\varphi = \frac{1 + \sqrt{5}}{2} = 1.6180339887...$$
 ### 1.2 The E8 Lattice
 
 **Definition:** The E8 lattice Λ_E8 ⊂ ℝ⁸ is:
-$$\Lambda_{E8} = \left\{x \in \mathbb{Z}^8 \cup \left(\mathbb{Z}+\tfrac{1}{2}\right)^8 : \sum_{i=1}^8 x_i \equiv 0 \pmod{2}\right\}$$
+$$\Lambda_{E8} = \left\lbrace x \in \mathbb{Z}^8 \cup \left(\mathbb{Z}+\tfrac{1}{2}\right)^8 : \sum_{i=1}^8 x_i \equiv 0 \pmod{2} \right\rbrace$$
 
 **Intrinsic Properties (derived from definition):**
 
