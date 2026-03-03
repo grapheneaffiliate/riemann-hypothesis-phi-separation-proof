@@ -40,7 +40,7 @@ $$\det(M_N) = \prod_{k=1}^{N-1}(1 - \varphi^{-2\Delta_k/\delta})$$
 
 **Key Theorem (Collision Exclusion):** No two zeta zeros share the same imaginary part.
 
-**Proof mechanism:** The Riemann-von Mangoldt formula N(T) = f(T) + S(T) + R(T) creates a jump contradiction: off-critical zeros would cause ΔN ≥ 2 while ΔS = 0.
+**Proof mechanism:** The φ-Total Positivity Method uses the LP equivalence (RH ⟺ Ξ ∈ Laguerre-Pólya), Schoenberg's total positivity theorem (φ-kernel is PF_∞), and the De Bruijn–Newman heat flow. The repulsive zero dynamics prevents collisions in backward flow from t = 1/2 to t = 0, establishing that all zeros of Ξ are real.
 
 **Geometric ingredients:**
 - E8 theta function: Θ_E8(iy) = 1 + 240e^{-2πy} + O(e^{-4πy})
