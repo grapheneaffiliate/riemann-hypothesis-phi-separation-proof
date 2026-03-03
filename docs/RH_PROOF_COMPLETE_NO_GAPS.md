@@ -543,9 +543,7 @@ where:
 
 The remainder term $R(T)$ arises primarily from the vertical integrals at Re(s)=2 and Re(s)=-1, which are continuous in T. However, the top horizontal segment of the contour runs at Im(s)=T from Re(s)=-1 to Re(s)=2, crossing the critical strip. When T exactly equals the imaginary part γ of a zero (or pair of zeros), poles of ξ'/ξ lie on this segment, requiring small downward semicircular indentations around each simple pole to avoid the singularities.
 
-For a simple zero on the top boundary, a downward semicircular indentation (counter-clockwise contour) contributes +πi × Res(ξ'/ξ at ρ) to the integral, where Res=1. Thus (1/(2πi)) × πi = +1/2 to the effective zero count per pole. For a symmetric pair of off-critical zeros at the same height γ=T (σ + iT and (1-σ) + iT, both simple), two indentations contribute +1/2 each, for a total adjustment ΔR_indented = +1 as T crosses γ.
-
-For a symmetric pair of off-critical zeros at the same height γ=T (σ + iT and (1-σ) + iT, both simple), two indentations contribute +1/2 each, for a total adjustment ΔR_indented = +1 as T crosses γ.
+For a simple zero on the top boundary, a downward semicircular indentation contributes +πi × Res(ξ'/ξ at ρ) to the integral, where Res = 1. Thus (1/(2πi)) × πi = +1/2 to the effective zero count per pole. For a symmetric pair of off-critical zeros at the same height γ = T (σ + iT and (1-σ) + iT, both simple), two indentations contribute +1/2 each, for a total adjustment ΔR_indented = +1 as T crosses γ.
 
 **Step 2:** Derivation via Argument Principle
 
@@ -553,7 +551,7 @@ By Cauchy's argument principle, for a contour C enclosing the rectangle $\{s : 0
 
 $$N(T) = \frac{1}{2\pi i} \oint_C \frac{\xi'(s)}{\xi(s)} ds$$
 
-The standard contour has vertices at $2, 2+iT, -1+iT, -1+iT$. This gives:
+The standard contour has vertices at $2, 2+iT, -1+iT, -1$. This gives:
 $$N(T) = I_{\text{right}} + I_{\text{top}} + I_{\text{left}} + I_{\text{bottom}}$$
 
 The key decomposition:
@@ -618,7 +616,7 @@ traversed from left to right (i.e., the semicircle dips below $\text{Im}(s) = \g
 
 **Lemma 6.1:** Let $\rho_0 = \sigma_0 + i\gamma$ be a simple zero of $\xi$ on the top boundary $\text{Im}(s) = \gamma$. The contribution of the downward semicircular indentation $C_0$ to the contour integral is:
 
-$$\frac{1}{2\pi i} \int_{C_0} \frac{\xi'(s)}{\xi(s)}\,ds = -\frac{1}{2}$$
+$$\frac{1}{2\pi i} \int_{C_0} \frac{\xi'(s)}{\xi(s)}\,ds = +\frac{1}{2}$$
 
 **Proof:**
 
@@ -627,23 +625,15 @@ $$\frac{\xi'(s)}{\xi(s)} = \frac{1}{s - \rho_0} + h(s)$$
 
 where $h(s)$ is holomorphic in a neighborhood of $\rho_0$.
 
-Parametrize $C_0$: $s = \rho_0 + \varepsilon e^{i\theta}$, $\theta: -\pi \to 0$ (downward semicircle, traversed clockwise when viewed from above):
-
-$$\frac{1}{2\pi i}\int_{C_0}\frac{ds}{s - \rho_0} = \frac{1}{2\pi i}\int_{-\pi}^{0} \frac{i\varepsilon e^{i\theta}}{\varepsilon e^{i\theta}}\,d\theta = \frac{1}{2\pi}\int_{-\pi}^{0} d\theta = \frac{1}{2\pi}\cdot\pi = -\frac{1}{2}$$
-
-Wait — let us be precise about orientation. The original contour traverses the top edge from left to right: from $-1+i\gamma$ to $2+i\gamma$. The indentation $C_0$ replaces a small segment $[\sigma_0 - \varepsilon + i\gamma,\, \sigma_0 + \varepsilon + i\gamma]$ with the **downward** arc. Traversing left-to-right, the downward semicircle goes:
-
-$$s = \rho_0 + \varepsilon e^{i\theta}, \quad \theta: \pi \to 0 \quad\text{(from left to bottom to right)}$$
-
-Wait — that is the **upper** semicircle. For a **downward** (into the rectangle) detour:
-
-$$s = \rho_0 + \varepsilon e^{i\theta}, \quad \theta: \pi \to 2\pi \quad\text{(equivalently } \pi \to 0 \text{ going clockwise below)}$$
-
-More precisely: from $\rho_0 - \varepsilon$ to $\rho_0 + \varepsilon$ via the arc **below** $\text{Im}(s) = \gamma$:
+The original contour traverses the top edge from left to right: from $-1+i\gamma$ to $2+i\gamma$. The indentation $C_0$ replaces the segment $[\sigma_0 - \varepsilon + i\gamma,\, \sigma_0 + \varepsilon + i\gamma]$ with a **downward** arc dipping below $\text{Im}(s) = \gamma$ (into the rectangle). Traversing left-to-right, this arc goes from $\rho_0 - \varepsilon$ to $\rho_0 + \varepsilon$ via the lower semicircle:
 
 $$s = \rho_0 + \varepsilon e^{i\theta}, \quad \theta: \pi \to 2\pi$$
 
-$$\frac{1}{2\pi i}\int_{C_0}\frac{ds}{s - \rho_0} = \frac{1}{2\pi i}\int_{\pi}^{2\pi} i\,d\theta = \frac{1}{2\pi}[\theta]_{\pi}^{2\pi} = \frac{1}{2\pi}\cdot\pi = +\frac{1}{2}$$
+(At $\theta = \pi$: $s = \rho_0 - \varepsilon$ (left endpoint). At $\theta = 3\pi/2$: $s = \rho_0 - i\varepsilon$ (bottom). At $\theta = 2\pi$: $s = \rho_0 + \varepsilon$ (right endpoint).)
+
+Computing the principal part:
+
+$$\frac{1}{2\pi i}\int_{C_0}\frac{ds}{s - \rho_0} = \frac{1}{2\pi i}\int_{\pi}^{2\pi} \frac{i\varepsilon e^{i\theta}}{\varepsilon e^{i\theta}}\,d\theta = \frac{1}{2\pi}\int_{\pi}^{2\pi} d\theta = \frac{1}{2\pi}\cdot\pi = +\frac{1}{2}$$
 
 The holomorphic part $h(s)$ contributes $O(\varepsilon) \to 0$ as $\varepsilon \to 0$.
 
