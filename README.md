@@ -35,7 +35,7 @@ The proof proceeds through five stages:
 riemann-hypothesis-phi-separation-proof/
 ├── README.md                           # This file
 ├── LICENSE                             # CC BY 4.0 License
-├── rh_jump_contradiction.lean          # Lean 4 formal verification
+├── rh_jump_contradiction.lean          # Lean 4 formal verification (LP/heat flow framework)
 │
 ├── docs/                               # Documentation and papers
 │   ├── RH_PROOF_COMPLETE_NO_GAPS.md    # Complete rigorous proof (main paper)
