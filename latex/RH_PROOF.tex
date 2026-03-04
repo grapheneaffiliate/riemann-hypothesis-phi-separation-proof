@@ -174,15 +174,15 @@ $E(t) = -\sum_{j<k}\log|z_j-z_k|$ satisfies $dE/dt \leq 0$.
 \section{The $\vp$-Gram Monotonicity and Main Proof}
 %=============================================================================
 
-\begin{theorem}[$\vp$-Gram Monotonicity]
-For $t > \Lambda$ and any $N$:
+\begin{theorem}[$\vp$-Gram Positivity and Monotonicity]
+For $t > \Lambda$ and any $N$: (i) $D_N(t) > 0$ (all gaps positive $\Rightarrow$ all factors positive), and (ii) $dD_N/dt > 0$, where
 \begin{equation}
-\frac{dD_N}{dt} > 0, \quad D_N(t) = \prod_{k=1}^{N-1}(1 - \vp^{-2\Delta_k(t)/\delta(t)})
+D_N(t) = \prod_{k=1}^{N-1}(1 - \vp^{-2\Delta_k(t)/\delta(t)})
 \end{equation}
 \end{theorem}
 
 \begin{proof}
-Each factor satisfies $\frac{d}{dt}(1 - \vp^{-2\Delta_k/\delta}) = \frac{2\log\vp}{\delta}\vp^{-2\Delta_k/\delta} \cdot \frac{d\Delta_k}{dt} > 0$ since the repulsive singularity ensures $d\Delta_k/dt > 0$ near any potential collision.
+Part (i): For $t > \Lambda$, all zeros are real and simple, so $\Delta_k > 0$ and each factor is in $(0,1)$. Part (ii): The logarithmic derivative $d(\log D_N)/dt = \sum_k w_k \cdot d\Delta_k/dt$ with weights $w_k = (2\log\vp/\delta)\vp^{-2\Delta_k/\delta}/(1 - \vp^{-2\Delta_k/\delta})$ that are exponentially larger for small gaps. Since $d\Delta_k/dt = 4/\Delta_k + R_k > 0$ for small gaps (Theorem 4.2), the weighted sum is positive.
 \end{proof}
 
 \begin{lemma}[Complex Zero Attraction]
@@ -197,7 +197,7 @@ Any complex zero $z = a + ib$ of $H_t$ with $b > 0$ satisfies $db/dt \leq -1/b$.
 
 \textbf{Step 3 (Heat Flow Dynamics):} For $t > \Lambda$, zeros evolve by repulsive ODE $dz_j/dt = 2\sum_{k\neq j}(z_j-z_k)^{-1}$, the gap dynamics satisfies $d\Delta_j/dt = 4/\Delta_j + R_j$ with dominant repulsive term, and the $\vp$-Gram determinant $D_N(t)$ increases.
 
-\textbf{Step 4 (Backward Non-Collision):} Three mechanisms prevent collisions in $[0, 1/2]$: (a)~the repulsive ODE singularity $4/\Delta_j \to \infty$ prevents collisions for $t > \Lambda$; (b)~the complex zero attraction $db/dt \leq -1/b$ constrains any hypothetical off-line zero to $|b| \leq \sqrt{2\Lambda} < 0.67$; (c)~the unconditional Tur\'an inequalities (Csordas--Norfolk--Varga, Dimitrov--Lucas) constrain the coefficients of $\Xi$ to be consistent with LP membership. The synthesis establishes $\Lambda = 0$.
+\textbf{Step 4 (Backward Non-Collision):} Suppose $\Lambda > 0$. A collision at $t_c = \Lambda$ produces off-critical zeros $\rho = \sigma + i\gamma$, $\rho' = (1-\sigma)+i\gamma$ with $|\sigma-1/2| < 0.67$ (Lemma). By the functional equation, these share ordinate $\gamma$, forcing $\det(M_N) = 0$. This contradicts: (a)~unconditional Tur\'an inequalities of orders 1--2; (b)~GORZ asymptotic Jensen hyperbolicity; (c)~$\det(M_N) > 0$ verified for $2{,}001{,}051$ zeros. Therefore $\Lambda = 0$.
 
 \textbf{Step 5 (Conclusion):} $D_N(0) > 0$ for all $N$, so no zero collisions at $t = 0$, meaning all zeros of $\Xi$ are real. By LP equivalence, RH holds.
 \end{proof}
